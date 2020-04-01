@@ -15,16 +15,14 @@ This is a modified fork of `sulaweyo/r710-fan-control`. I really only changed so
 
 3.  modify the fan speeds in `speeds.yaml`. Right now the speeds are optimized to keep the temp below 73° on a 24/7 high cpu load so you may want something more conservative:
 
-         ```yaml
-
-    :speed_steps:
-              !ruby/range 0..40: 15   # run at 10% speed up to 30°C
-              !ruby/range 41..50: 20  # run at 15% speed up to 40°C
-              !ruby/range 51..55: 30  # run at 20% speed up to 50°C
-              !ruby/range 56..60: 35  # run at 30% speed up to 60°C
-              !ruby/range 61..66: 40  # run at 40% speed up to 65°C
-
-         ```
+ ```yaml
+:speed_steps:
+      !ruby/range 0..40: 15   # run at 10% speed up to 30°C
+      !ruby/range 41..50: 20  # run at 15% speed up to 40°C
+      !ruby/range 51..55: 30  # run at 20% speed up to 50°C
+      !ruby/range 56..60: 35  # run at 30% speed up to 60°C
+      !ruby/range 61..66: 40  # run at 40% speed up to 65°C
+ ```
 
 
 4.  run with `ipmi-fancontrol.rb start`. The script has a help command too
@@ -32,6 +30,8 @@ This is a modified fork of `sulaweyo/r710-fan-control`. I really only changed so
 ### Notes
 
 Be careful with this. If you mess up and the script dies or whatever the fans could be stuck at the wrong speed and your cpus can melt lol. Running this as a service will almost 100% avoid this because of the auto-restart features and `ExecStopPost`. I trust it and I had it running for months so there's really no worry unless you decide to use this in production.
+
+Use `watch -n1 "sensors | grep core" to watch the cpu temps and modify the speed config
 
 If you are going to use this as a service, install the file`fan-control.service`. Make sure to modify it for your specific OS.
 
