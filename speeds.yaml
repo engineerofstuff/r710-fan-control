@@ -1,0 +1,12 @@
+---
+# the following hash defines fan speed values and the temp range that is ok for that speed
+:speed_steps:
+  !ruby/range 0..40: 15     # run at 15% speed up to 40°C
+  !ruby/range 41..50: 20    # run at 20% speed up to 50°C
+  !ruby/range 51..55: 30
+  !ruby/range 56..68: 45
+  !ruby/range 69..70: 48
+  !ruby/range 71..75: 55
+  !ruby/range 76..77: 60
+  !ruby/range 78..79: 65
+  !ruby/range 80..82: 90

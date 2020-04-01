@@ -1,0 +1,15 @@
+[Unit]
+Description=Custom fan control using ipmi
+After=network.target
+
+[Service]
+Type=simple
+User=centos
+ExecStart=/etc/ipmi-fan-control/ipmi-fancontrol.rb start
+ExecStopPost=/etc/ipmi-fan-control/ipmi-fancontrol.rb reset
+WorkingDirectory=/etc/ipmi-fan-control
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target
