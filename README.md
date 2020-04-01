@@ -31,7 +31,7 @@ This is a modified fork of `sulaweyo/r710-fan-control`. I really only changed so
 
 Be careful with this. If you mess up and the script dies or whatever the fans could be stuck at the wrong speed and your cpus can melt lol. Running this as a service will almost 100% avoid this because of the auto-restart features and `ExecStopPost`. I trust it and I had it running for months so there's really no worry unless you decide to use this in production.
 
-Use `watch -n1 "sensors | grep core" to watch the cpu temps and modify the speed config
+Use `watch -n1 "sensors | grep core"` to watch the cpu temps and modify the speed config
 
 If you are going to use this as a service, install the file`fan-control.service`. Make sure to modify it for your specific OS.
 
