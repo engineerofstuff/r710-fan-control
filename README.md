@@ -33,6 +33,8 @@ Be careful with this. If you mess up and the script dies or whatever the fans co
 
 Use `watch -n1 "sensors | grep core"` to watch the cpu temps and modify the speed config
 
+I removed the authentication from ipmi commands and just used sudo instead because I'm lazy. This might or might not work for you.
+
 If you are going to use this as a service, install the file`fan-control.service`. Make sure to modify it for your specific OS.
 
 * * *
